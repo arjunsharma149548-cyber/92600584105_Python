@@ -1,0 +1,211 @@
+Q1.write a program to create and import a user define module.
+
+def greeting(name):
+    return "Hello: " + name
+
+
+def add(a,b):
+    return  a+b 
+
+import mainQ1
+
+student=mainQ1.greeting("Arjun")
+print(student)
+
+import mainQ1
+
+a=int(input("Enter first number:"))
+b=int(input("Enter second number:"))
+
+addition=mainQ1.add(a,b)
+print("Addition:",addition)
+
+
+
+Q2.write a program import disfferent machinasim in python
+
+import math
+print("square root:",math.sqrt(5))
+
+from math import sqrt
+print("square root:",sqrt(4))
+
+from math import *
+print("Factorial:",factorial(5))
+
+from math import pow
+print("power:",pow(2,3))
+
+from math import factorial as f
+print("factorial:",f(8)) 
+
+
+Q3.Write a program to perform mathematical operations using math module. 
+
+import math
+num=int(input("Enter value of number:"))
+
+print("square root:",math.sqrt(num))
+print("factorial:",math.factorial(num))
+print("power:",math.pow(num,2))
+print("celing:",math.ceil(4.5))
+print("value of pi:",math.pi)
+
+Q4.Write a program to generate random numbers using random module.
+
+import random
+print("Random integer:",random.randint(1,100))
+print("Random float:",random.random())
+print("Random number for range:",random.randrange(1,50,2))
+
+
+Q5.Write a program to display current date and time using datetime module. 
+
+import datetime
+
+Current_date=datetime.date.today()
+current_time=datetime.datetime.now().time()
+
+print("current_date:",Current_date)
+print("current_time:",current_time)
+print("current date and time:",datetime.datetime.now())
+
+
+Q6.Write a program to perform file and directory operations using os and sys modules.
+import os
+import sys
+
+# Display the current working directory
+print("Current Directory:", os.getcwd())
+
+# Create a new directory
+folder = "MyFolder"
+
+if not os.path.exists(folder):
+    os.mkdir(folder)
+    print("Directory created successfully.")
+else:
+    print("Directory already exists.")
+
+# Create a file inside the directory
+file_path = os.path.join(folder, "sample.txt")
+
+with open(file_path, "w") as file:
+    file.write("Hello, Python!")
+
+print("File created successfully.")
+
+# Display files and directories
+print("Directory Contents:", os.listdir("."))
+
+# Display Python version
+print("Python Version:", sys.version)
+
+# Display command-line arguments
+print("Command-Line Arguments:", sys.argv)
+
+
+Q7.Write a program to copy move and delete files using shutil module. 
+
+
+import shutil
+import os
+
+# Create a sample file
+with open("sample.txt", "w") as file:
+    file.write("Hello, Python!")
+
+# 1. Copy the file
+shutil.copy("sample.txt", "copy.txt")
+print("File copied successfully.")
+
+# 2. Move the file
+shutil.move("copy.txt", "moved.txt")
+print("File moved successfully.")
+
+# 3. Delete the file
+if os.path.exists("moved.txt"):
+    os.remove("moved.txt")
+    print("File deleted successfully.")
+
+Q8.Write a program to demonstrate basic regular expression pattern matching. 
+
+import re
+
+text = "My name is Arjun and my phone number is 9876543210."
+
+# Search for a word
+result = re.search("Arjun", text)
+
+if result:
+    print("Word found:", result.group())
+else:
+    print("Word not found.")
+
+# Find all digits
+digits = re.findall(r"\d", text)
+print("Digits:", digits)
+
+# Check whether the text starts with a word
+result = re.match("My", text)
+
+if result:
+    print("Text starts with:", result.group())
+else:
+    print("No match at the beginning.")
+
+
+
+Q9.Write a program to use re module functions such as match search and findall.
+
+import re
+
+text = "Python is easy. Python is powerful. My marks are 85."
+
+# 1. Using match()
+result1 = re.match("Python", text)
+print("Match:", result1.group() if result1 else "Not found")
+
+# 2. Using search()
+result2 = re.search("easy", text)
+print("Search:", result2.group() if result2 else "Not found")
+
+# 3. Using findall()
+result3 = re.findall("Python", text)
+print("Findall:", result3)
+
+# Find all digits
+digits = re.findall(r"\d+", text)
+print("Digits:", digits)
+
+
+Q10.#10.Write a program to extract specific information from a text file using regular expressions
+
+
+import re
+
+# Create a text file
+with open("data.txt", "w") as file:
+    file.write("Name: Arjun\n")
+    file.write("Phone: 9876543210\n")
+    file.write("Email: arjun@gmail.com\n")
+
+# Read the text file
+with open("data.txt", "r") as file:
+    text = file.read()
+
+# Extract name
+name = re.search(r"Name:\s*(.*)", text)
+
+# Extract phone number
+phone = re.search(r"Phone:\s*(\d{10})", text)
+
+# Extract email
+email = re.search(r"Email:\s*([\w.-]+@[\w.-]+\.\w+)", text)
+
+# Display extracted information
+print("Name:", name.group(1) if name else "Not found")
+print("Phone:", phone.group(1) if phone else "Not found")
+print("Email:", email.group(1) if email else "Not found")
+
+

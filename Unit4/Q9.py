@@ -1,0 +1,31 @@
+#Q9.Write a program to read and write data into a file using different file modes.
+# 1. Write mode (w)
+f = open("student.txt", "w")
+f.write("Name: Arjun\n")
+f.write("Marks: 85\n")
+f.close()
+
+# 2. Read mode (r)
+f = open("student.txt", "r")
+print("File contents:")
+print(f.read())
+f.close()
+
+# 3. Append mode (a)
+f = open("student.txt", "a")
+f.write("College: Marwadi University\n")
+f.close()
+
+# 4. Read and write mode (r+)
+f = open("student.txt", "r+")
+print("Data using r+ mode:")
+print(f.read())
+f.close()
+
+# 5. Write and read mode (w+)
+f = open("student2.txt", "w+")
+f.write("Hello Python")
+f.seek(0)
+print("Data using w+ mode:")
+print(f.read())
+f.close()
